@@ -79,8 +79,12 @@ begin
 			wait(1000)
 		end;
 	end;
-	
-
+	//adicionado rotina para mover os SOS para mesma bag dos magic fish
+    while (FindType(SOSType, backpack) > 0) do
+	begin
+		MoveItem(FindItem, 1, magicalFishBagID, 0, 0, 0);
+		wait(1000);
+	end;
 	//cortando os peixes
 	checksave;
 	waitconnection(3000);
