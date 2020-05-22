@@ -231,15 +231,19 @@ begin
 	// ===========================
     // Procura por VARA na mochila e banco
     // ===========================
-	if not (ObjAtLayerEx(RhandLayer,self) > 0) or (FindType(VaraType, backpack) > 0) then
+	if not ObjAtLayerEx(LhandLayer,Self) or ObjAtLayerEx(RhandLayer,Self) or FindType(VaraType, backpack) > 0 then
 	begin
-        wait(500);
+       Wait(500) 
+    end
+	else
+	begin
+		wait(500);
         if FindType(VaraType, RestockContainer) > 0 then
             wait(500);
             MoveItem(FindItem, 1, backpack, 0, 0, 0);
             wait(500);
-    end;
-	Wait(500)	
+	end;
+	Wait(500);	
 	
 	guardaSOS;
 	
