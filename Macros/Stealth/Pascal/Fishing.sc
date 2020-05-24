@@ -1,3 +1,12 @@
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+//ESTE MACRO PESCA EM UMA REGIÃO DEFINIDA ENTRE XMAX-XMIN E YMAX-YMIN (UM QUADRADO OU RETANGULO)
+//BUSCAR NO CÓDIGO O LOCAL ONDE AS VARIÁVEIS DE CADA CHAR DEVE SER DEFINIDA ANTES DE DAR O PLAY (proximo da linha 515) não mudar mais nada em outro local!
+//NÃO INICIAR O MACRO NO LOCAL (coords XY) ONDE RECALA PRO BANCO
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+
+
 Program Fishing;
 
 Uses 
@@ -507,15 +516,14 @@ begin
 	//*****************************************************************************
 	nome := charname;	
 	if (nome = 'AstroZombiE') then 
-	begin
-		AddToSystemJournal('Script iniciado pelo char: ' + nome);
-		RuneBank := '1,1'; 
-		RestockContainer := $4001780C; //container do banco onde ficam reags
+	begin		
+		RuneBank := '1,1'; //pagina 1 posição 1
+		RestockContainer := $4001780C; //container do banco onde ficam reags e varas
 		ChaveBarcoID := $40046A2A;
 		FishContainer := $40047075; //container do barco
 		SOSconteinerID := $4001938A; //essa bag fica no banco
-		magicalFishBagID := $400758C5;
-		peixeCortadoBagID := $4007588C;
+		magicalFishBagID := $400758C5; //bag fica no bau do barco
+		peixeCortadoBagID := $4007588C; //bag fica no bau do barco
 		//no caso desse char o macro vai de uma coord Y grande pra uma coordY pequena
 		coordXMIN := 0; //limite minimo da coord X
 		coordXMAX := 0; //limite maximo da coord X
@@ -523,6 +531,10 @@ begin
 		coordYMAX := 0; 
 	end;
 	
+	if (nome = 'SEU CHAR') then 
+	begin
+		//...ADICIONAR OUTROS CHAR SEGUINDO ESTA LÓGICA DO ANTERIOR (NÃO PULE VARIAVEIS)
+	end;
 	
 	
 	
@@ -545,7 +557,7 @@ begin
 		
 	//turn around -> muda o barco 180°
 	//turn left -> barco vira 90° pra esquerda
-	
+	AddToSystemJournal('Script iniciado pelo char: ' + nome);
 	SetPauseScriptOnDisconnectStatus(True);
 	SetARStatus(True);
 	//TempoInicial := now;	
