@@ -1,0 +1,26 @@
+set %contador 0
+
+
+HotKeyLoop:
+
+onhotkey F5
+    gosub hotkeyF5
+    
+GOTO HotKeyLoop
+;==================================================
+
+
+sub hotkeyF5
+  ;set %contador %contador + 1
+  ; #SMC � uma vari�vel especial do EUO para printar ;
+  execute cmd /c echo [ #charposx #dot #charposy #dot #ltargetx #dot #ltargety #dot #ltargettile ] >> posicao_arvores.txt
+
+
+return
+
+;andar ate a arvore, usar o machado na arvore e pressionar f5, repetir o processo ate marcar todas as arvores. Importante que a ultima arvore marcada fique proxima da primeira (trajeotria circular)
+;apos gerar o aqruivo, dever substituir no search and replace do notepad os pontos pelas virgulas
+;o arquivo gerado com a array das arvores fica no mesmo local que este arquivo de marcação com o nome posicao_arvores.txt
+
+
+
